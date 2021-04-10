@@ -1,5 +1,5 @@
-<template>
-  <v-col class="no-padding" cols="4" xs="4" sm="4" md="3">
+<template><div></div>
+  <!-- <v-col class="no-padding" cols="4" xs="4" sm="4" md="3">
     <v-card class="main_left-part">
       <v-list class=" left_menu" dark>
         <v-list-item>
@@ -40,47 +40,47 @@
         </v-list-item-group>
       </v-list>
     </v-card>
-  </v-col>
+  </v-col> -->
 </template>
 
 <script>
-export default {
-  data: () => ({
-    selectedItem: 0
-  }),
-  computed: {
-    loggedIn() {
-      return this.$store.getters.userLoggedIn
-    },
-    items() {
-      // if (this.loggedIn)
-      return [
-        { text: 'My page', icon: 'mdi-account', link: 'current_user' },
-        { text: 'All users', icon: 'mdi-account-multiple', link: 'users' },
-        {
-          text: 'Chat',
-          icon: 'mdi-chat',
-          link: 'chat'
-        },
-        {
-          text: 'Actions by dbid',
-          icon: 'mdi-account-supervisor-circle',
-          link: 'actions_by_dbid'
-        }
-      ]
-      return [
-        // { text: 'Login', icon: 'mdi-login', link: 'login' },
-        // { text: 'Sign up', icon: 'mdi-account-alert', link: 'registration' }
-      ]
-    }
-  },
-  methods: {
-    logOut() {
-      this.$store.dispatch('logoutUser')
-      this.$router.push(`/`)
-    }
-  }
-}
+// export default {
+//   data: () => ({
+//     selectedItem: 0
+//   }),
+//   computed: {
+//     loggedIn() {
+//       return this.$store.getters.userLoggedIn
+//     },
+//     items() {
+//       // if (this.loggedIn)
+//       return [
+//         { text: 'My page', icon: 'mdi-account', link: 'current_user' },
+//         { text: 'All users', icon: 'mdi-account-multiple', link: 'users' },
+//         {
+//           text: 'Chat',
+//           icon: 'mdi-chat',
+//           link: 'chat'
+//         },
+//         {
+//           text: 'Actions by dbid',
+//           icon: 'mdi-account-supervisor-circle',
+//           link: 'actions_by_dbid'
+//         }
+//       ]
+//       return [
+//         // { text: 'Login', icon: 'mdi-login', link: 'login' },
+//         // { text: 'Sign up', icon: 'mdi-account-alert', link: 'registration' }
+//       ]
+//     }
+//   },
+//   methods: {
+//     logOut() {
+//       this.$store.dispatch('logoutUser')
+//       this.$router.push(`/`)
+//     }
+//   }
+// }
 </script>
 
 <style>

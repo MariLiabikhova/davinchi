@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <div class="card-wrapper">
+    <!-- <div class="card-wrapper">
       <v-card class="main">
         <v-container class="correct-fluid" fluid>
           <v-row class="correct-fluid">
@@ -58,66 +58,66 @@
           </v-row>
         </v-container>
       </v-card>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue'
-export default {
-  components: { Navbar },
-  data() {
-    return {
-      messageField: null
-    }
-  },
-  async mounted() {
-    try {
-      let element = this.$refs.chatArea
-      await this.$store.dispatch('fetchChatDB')
-      element.scrollTop = element.scrollHeight
-    } catch (error) {
-      throw error
-    }
-  },
-  computed: {
-    messages() {
-      return this.$store.getters.chatMessages
-    }
-  },
-  methods: {
-    async onSendMessage() {
-      try {
-        const newMessage = {
-          avatar:
-            'https://cloudstatic.eva.ru/eva/720000-730000/722554/wiki/1577182578357_4299168799076267.jpg?H',
-          nickname: this.$store.getters.currentUser.nickname,
-          date: Date(),
-          text: this.messageField
-        }
-        this.messageField = null
-        this.$store.dispatch('addMesage', newMessage)
-        let element = this.$refs.chatArea
-        await this.$store.dispatch('fetchChatDB')
-        element.scrollTop = element.scrollHeight
-      } catch (error) {
-        throw error
-      }
-    },
-    formatDate(timestamp) {
-      let dbFormatDate = Date.parse(timestamp)
-      return `${new Date(dbFormatDate).getHours()}${
-        new Date(dbFormatDate).getMinutes() < 10
-          ? `:0${new Date(dbFormatDate).getMinutes()}`
-          : `:${new Date(dbFormatDate).getMinutes()}`
-      } ${new Date(dbFormatDate).getDate()}${
-        new Date(dbFormatDate).getMonth() < 9
-          ? `:0${new Date(dbFormatDate).getMonth() + 1}`
-          : `:${new Date(dbFormatDate).getMonth() + 1}`
-      }.${new Date(dbFormatDate).getFullYear()}`
-    }
-  }
-}
+// import Navbar from '../components/Navbar.vue'
+// export default {
+//   components: { Navbar },
+//   data() {
+//     return {
+//       messageField: null
+//     }
+//   },
+//   async mounted() {
+//     try {
+//       let element = this.$refs.chatArea
+//       await this.$store.dispatch('fetchChatDB')
+//       element.scrollTop = element.scrollHeight
+//     } catch (error) {
+//       throw error
+//     }
+//   },
+//   computed: {
+//     messages() {
+//       return this.$store.getters.chatMessages
+//     }
+//   },
+//   methods: {
+//     async onSendMessage() {
+//       try {
+//         const newMessage = {
+//           avatar:
+//             'https://cloudstatic.eva.ru/eva/720000-730000/722554/wiki/1577182578357_4299168799076267.jpg?H',
+//           nickname: this.$store.getters.currentUser.nickname,
+//           date: Date(),
+//           text: this.messageField
+//         }
+//         this.messageField = null
+//         this.$store.dispatch('addMesage', newMessage)
+//         let element = this.$refs.chatArea
+//         await this.$store.dispatch('fetchChatDB')
+//         element.scrollTop = element.scrollHeight
+//       } catch (error) {
+//         throw error
+//       }
+//     },
+//     formatDate(timestamp) {
+//       let dbFormatDate = Date.parse(timestamp)
+//       return `${new Date(dbFormatDate).getHours()}${
+//         new Date(dbFormatDate).getMinutes() < 10
+//           ? `:0${new Date(dbFormatDate).getMinutes()}`
+//           : `:${new Date(dbFormatDate).getMinutes()}`
+//       } ${new Date(dbFormatDate).getDate()}${
+//         new Date(dbFormatDate).getMonth() < 9
+//           ? `:0${new Date(dbFormatDate).getMonth() + 1}`
+//           : `:${new Date(dbFormatDate).getMonth() + 1}`
+//       }.${new Date(dbFormatDate).getFullYear()}`
+//     }
+//   }
+// }
 </script>
 
 <style scoped>

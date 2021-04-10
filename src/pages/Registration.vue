@@ -1,6 +1,6 @@
 <template>
   <div class="wrapp">
-    <v-container fluid fill-height>
+    <!-- <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md6>
           <v-card class="elevation-24">
@@ -55,51 +55,51 @@
           </v-card>
         </v-flex>
       </v-layout>
-    </v-container>
+    </v-container> -->
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      valid: false,
-      email: '',
-      password: '',
-      confirmPassword: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid'
-      ],
-      passwordRules: [
-        v => !!v || 'Password is required',
-        v =>
-          v.length >= 6 || 'Password must be equal or than  than 6 characters'
-      ],
-      confirmPasswordRules: [
-        v => !!v || 'Password is required',
-        v => v === this.password || 'Password should match'
-      ]
-    }
-  },
-  methods: {
-    isSubmit() {
-      if (this.$refs.form.validate()) {
-        const user = {
-          email: this.email,
-          password: this.password
-        }
-        this.$store
-          .dispatch('registrationUser', user)
-          .then(() => {
-            this.$router.push('/current_user')
-            this.$bus.$emit('showModal')
-          })
-          .catch(() => {
-            this.$bus.$emit('showModal')
-          })
-      }
-    }
-  }
-}
-</script>
+// <script>
+// export default {
+//   data() {
+//     return {
+//       valid: false,
+//       email: '',
+//       password: '',
+//       confirmPassword: '',
+//       emailRules: [
+//         v => !!v || 'E-mail is required',
+//         v => /.+@.+/.test(v) || 'E-mail must be valid'
+//       ],
+//       passwordRules: [
+//         v => !!v || 'Password is required',
+//         v =>
+//           v.length >= 6 || 'Password must be equal or than  than 6 characters'
+//       ],
+//       confirmPasswordRules: [
+//         v => !!v || 'Password is required',
+//         v => v === this.password || 'Password should match'
+//       ]
+//     }
+//   },
+//   methods: {
+//     isSubmit() {
+//       if (this.$refs.form.validate()) {
+//         const user = {
+//           email: this.email,
+//           password: this.password
+//         }
+//         this.$store
+//           .dispatch('registrationUser', user)
+//           .then(() => {
+//             this.$router.push('/current_user')
+//             this.$bus.$emit('showModal')
+//           })
+//           .catch(() => {
+//             this.$bus.$emit('showModal')
+//           })
+//       }
+//     }
+//   }
+// }
+// </script>

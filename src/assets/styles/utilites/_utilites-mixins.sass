@@ -1,0 +1,49 @@
+// spacing 
+@mixin generate-utility($utility, $infix) 
+  $values: map-get($utility, values)
+
+  // If the values are a list or string, convert it into a map
+  @if type-of($values) == "string" or type-of(nth($values, 1)) != "list" 
+    $values: zip($values, $values)
+  
+  @each $key, $value in $values 
+    $properties: map-get($utility, property)
+
+    // Multiple properties are possible, for example with vertical or horizontal margins or paddings
+    @if type-of($properties) == "string" 
+      $properties: append((), $properties)
+
+    // Use custom class if present
+    $property-class: if(map-has-key($utility, class), map-get($utility, class), nth($properties, 1))
+    $property-class: if($property-class == null, "", $property-class)
+
+    $infix: if($property-class == "" and str-slice($infix, 1, 1) == "-", str-slice($infix, 2), $infix)
+
+    // Don't prefix if value key is null (eg. with shadow class)
+    $property-class-modifier: if($key, if($property-class == "" and $infix == "", "", "-") + $key, "")
+
+    .#{$property-class + $infix + $property-class-modifier} 
+      @each $property in $properties 
+        // stylelint-disable-next-line declaration-no-important
+        // #{$property}: $value !important;
+        #{$property}: $value
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) 
+  $min: map-get($breakpoints, $name)
+  @return if($min != 0, $min, null)
+
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
+// Useful for making responsive utilities.
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) 
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}")
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $breakpoints) 
+  $min: breakpoint-min($name, $breakpoints)
+  @if $min 
+    @media (min-width: $min) 
+      @content
+		@else 
+			@content

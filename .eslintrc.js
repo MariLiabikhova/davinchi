@@ -12,11 +12,12 @@ module.exports = {
       {
         singleQuote: true,
         semi: false,
-        trailingComma: 'none'
+        trailingComma: 'none',
+        endOfLine: 'auto'
       }
     ]
   },
   parserOptions: {
-  parser: "babel-eslint"
+    parser: "babel-eslint"
   }
 };

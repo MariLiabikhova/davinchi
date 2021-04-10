@@ -2,12 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import vuetify from './plugins/vuetify'
 import firebase from 'firebase/app'
 ;('firebase/database')
 ;('firebase/auth')
 ;('firebase/storage')
 import firebaseConfig from './fbConfig'
+import '@/assets/styles/main.sass'
 
 Vue.config.productionTip = false
 Vue.use(firebase)
@@ -17,7 +17,6 @@ Vue.prototype.$bus = new Vue()
 new Vue({
   router,
   store,
-  vuetify,
   render: h => h(App),
   created() {
     firebase.initializeApp(firebaseConfig)

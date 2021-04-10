@@ -1,6 +1,6 @@
 <template>
   <div class="wrapp">
-    <v-container fluid fill-height>
+    <!-- <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md6>
           <v-card class="elevation-24">
@@ -44,54 +44,54 @@
           </v-card>
         </v-flex>
       </v-layout>
-    </v-container>
+    </v-container> -->
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      valid: false,
-      email: '',
-      password: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid'
-      ],
-      passwordRules: [
-        v => !!v || 'Password is required',
-        v =>
-          v.length >= 6 || 'Password must be equal or than  than 6 characters'
-      ]
-    }
-  },
-  created() {
-    if (this.$route.query['loginError']) {
-      this.$store.dispatch('activeError', 'My friend, try login')
-      this.$store.dispatch('isErrorColor')
-      this.$bus.$emit('showModal')
-    }
-  },
-  methods: {
-    isSubmit() {
-      if (this.$refs.form.validate()) {
-        const user = {
-          email: this.email,
-          password: this.password
-        }
+// <script>
+// export default {
+//   data() {
+//     return {
+//       valid: false,
+//       email: '',
+//       password: '',
+//       emailRules: [
+//         v => !!v || 'E-mail is required',
+//         v => /.+@.+/.test(v) || 'E-mail must be valid'
+//       ],
+//       passwordRules: [
+//         v => !!v || 'Password is required',
+//         v =>
+//           v.length >= 6 || 'Password must be equal or than  than 6 characters'
+//       ]
+//     }
+//   },
+//   created() {
+//     if (this.$route.query['loginError']) {
+//       this.$store.dispatch('activeError', 'My friend, try login')
+//       this.$store.dispatch('isErrorColor')
+//       this.$bus.$emit('showModal')
+//     }
+//   },
+//   methods: {
+//     isSubmit() {
+//       if (this.$refs.form.validate()) {
+//         const user = {
+//           email: this.email,
+//           password: this.password
+//         }
 
-        this.$store
-          .dispatch('loginUser', user)
-          .then(() => {
-            this.$router.push('/')
-            this.$bus.$emit('showModal')
-          })
-          .catch(() => {
-            this.$bus.$emit('showModal')
-          })
-      }
-    }
-  }
-}
-</script>
+//         this.$store
+//           .dispatch('loginUser', user)
+//           .then(() => {
+//             this.$router.push('/')
+//             this.$bus.$emit('showModal')
+//           })
+//           .catch(() => {
+//             this.$bus.$emit('showModal')
+//           })
+//       }
+//     }
+//   }
+// }
+// </script>

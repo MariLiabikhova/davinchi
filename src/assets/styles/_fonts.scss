@@ -1,0 +1,23 @@
+//	Font Face Mixin
+
+@mixin fontFace($family, $src, $weight: normal, $style: normal) {
+	@font-face {
+		font-display: swap;
+		font-family: $family;
+		// src: url('../fonts/' + $src + '.eot');
+		src: 
+		// url('../fonts/' + $src + '.eot?#iefix') format('embedded-opentype'),
+		// url('../fonts/' + $src + '.woff') format('woff'),
+		url('../fonts/' + $src + '.ttf') format('truetype');
+		// url('../fonts/' + $src + '.otf') format('opentype');
+		font-weight: $weight;
+		font-style: $style;
+	}
+}
+
+@include fontFace("HindMadurai", "HindMadurai-Regular", 400);
+@include fontFace("HindMadurai", "HindMadurai-Medium", 500);
+@include fontFace("HindMadurai", "HindMadurai-SemiBold", 600);
+@include fontFace("HindMadurai", "HindMadurai-Bold", 700);
+@include fontFace("HindMadurai", "HindMadurai-Light", 300);
+@include fontFace("FredokaOne", "FredokaOne-Regular", 500);
