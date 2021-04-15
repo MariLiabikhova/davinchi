@@ -1,6 +1,6 @@
 <template>
   <div class="main h-100vh d-flex align-items-center">
-    <div class="container">
+    <div class="container  main__container">
       <div class="main__content d-flex py-5">
         <div class="ml-100 w-35">
           <router-link to="#" class="link mb-30 link__logo">DVCh</router-link>
@@ -24,7 +24,7 @@
           </div>
           <div class="ml-90 mr-60 main__navy">
             <p class="main__text mb-0">The freshest decisions</p>
-            <h2 class="mb-30 main__h2">Since 2021</h2>
+            <h2 class="mb-30 main__h2 main__h2--pseudo">Since 2021</h2>
             <p class="main__text mb-10">Enjoy the team</p>
             <router-link to="#" class="link link--btnstyle w-100  mb-10">know more</router-link>
             <p class="main__text">join our collaborator</p>

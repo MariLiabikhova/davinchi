@@ -1,137 +1,98 @@
-<template><div></div>
-  <!-- <div class="main h-100vh d-flex align-items-center">
-    <div class="container">
-      <div class="main__content py-5 d-flex">
-        <div class="ml-100 w-35">
-          <router-link to="#" class="link mb-100 link__logo">DVCh</router-link>
-          <div class="ml-90 mr-60 main__navy">
-            <form ref="form">
+<template>
+  <div class="main h-100vh d-flex align-items-center">
+    <div class="container main__container">
+      <div class="main__content  py-5 d-flex">
+        <div class="ml-100 w-35 mr-30">
+          <router-link to="/" class="link mb-50 link__logo">DVCh</router-link>
+          <h2 class="main__h2mb-25 pl-50">Login:</h2>
+          <div class="py-30 px-70 main__navy">
+            <div>
               <div>
-                <div>
-                  <label>Email:</label>
-                </div>
-                <div>
-                  <input type="email" v-model="email" :class="{form__valid: isEmailValid , form__error: !isEmailValid}"> 
-                </div>
+                <label class="main__label">Email:</label>
+                <input type="email" v-model="email" class="main__input" :class="{form__valid: isEmailValid , form__error: !isEmailValid}"> 
               </div>
               <div>
-                <div>
-                  <label>Password:</label>
-                </div>
-                <div>
-                  <input type="password" v-model="password" :class="{form__valid: isPassvordValid , form__error: !isPassvordValid}"> 
-                </div>
+                <label class="main__label">Password:</label>
+                <input type="password" v-model="password" class="main__input"  :class="{form__valid: isPassvordValid , form__error: !isPassvordValid}"> 
               </div>
-              <div>
-                <div>
-                  <label>Password confirm:</label>
-                </div>
-                <div>
-                  <input type="passwordConfirm" v-model="passwordConfirm" :class="{form__valid: isPasswordConfirm , form__error: !isPasswordConfirm}"> 
-                </div>
+      
+              <div  class=" d-flex">
+                <button class="mr-15 w-50 main__btn main__btn--gradient" 
+                  @click="onSubmit"
+                  type="submit"
+                  :disabled="!isFormValid">
+                  Login
+                </button>
+                <button type="button"  class="main__btn w-50" @click="onMain">
+                  Back
+                </button>
               </div>
-              <button
-                @click="isSubmit"
-                :disabled="!isFormValid"
-                >Login
-              </button>
-            </form>
+            </div>
           </div>
         </div>
         <div class="w-40 ml-30 mt-15">
           <div class="w-70 img__wrap px-50 py-50  mb-60">
             <img :src="require('@/assets/img/camera.png')" alt="camera lens picture" class="w-100 img">
           </div>
+          <div class="d-flex w-70 justify-content-between">
+            <router-link to="#" class="link link__lines lh--14 text--18">Order<br><span class='text--14 main__text'>a project</span></router-link>
+            <router-link to="#" class="link link__lines link__lines--second lh--14 text--18">Сustomer<br><span class='text--14 main__text'>reviews</span></router-link>
+            <router-link to="#" class="link link__lines link__lines--third lh--14 text--18">Abouts<br><span class='text--14 main__text'>us</span></router-link>
+          </div>
         </div>
       </div>
     </div>
-  </div> -->
-
-
-    <!-- OLD CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-  <!-- <div class="wrapp"> -->
-    <!-- <v-container fluid fill-height>
-      <v-layout align-center justify-center>
-        <v-flex xs12 sm8 md6>
-          <v-card class="elevation-24">
-            <v-toolbar dark color=" blue lighten-1">
-              <v-toolbar-title>Login form</v-toolbar-title>
-            </v-toolbar>
-            <v-card-text>
-              <v-form ref="form" v-model="valid">
-                <v-text-field
-                  prepend-icon="mdi-email"
-                  name="email"
-                  label="Email"
-                  type="email"
-                  v-model="email"
-                  :rules="emailRules"
-                  required
-                >
-                </v-text-field>
-                <v-text-field
-                  prepend-icon="mdi-lock"
-                  name="password"
-                  label="Password"
-                  type="password"
-                  :rules="passwordRules"
-                  :counter="6"
-                  v-model="password"
-                  required
-                >
-                </v-text-field>
-              </v-form>
-            </v-card-text>
-            <v-card-actions>
-              <v-btn
-                dark
-                color="blue lighten-1"
-                @click="isSubmit"
-                :disabled="!valid"
-                >Login</v-btn
-              >
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container> -->
-  <!-- </div> -->
+  </div>
 </template>
 
-// <script>
-// export default {
-//   data() {
-//     return {
-//       email: '',
-//       password: '',
-//       passwordConfirm: ''
-//     }
-//   },
-// created() {
-// if (this.$route.query['loginError']) {
-//   this.$store.dispatch('activeError', 'My friend, try login')
-//   this.$store.dispatch('isErrorColor')
-//   this.$bus.$emit('showModal')
-// }
-// },
-// methods: {
-// isSubmit() {
-
-// if (this.$refs.form == valid) {
-//   const user = {
-//     email: this.email,
-//     password: this.password
-//   }
-//   this.$store
-//     .dispatch('loginUser', user)
-//     .then(() => {
-//       this.$router.push('/')
-//       // this.$bus.$emit('showModal')
-//       alert('success')
-//     })
-//     .catch(() => {
-//       // this.$bus.$emit('showModal')
-//       alert('fail')
-//     })
-// }
+<script>
+export default {
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  computed: {
+    isEmailValid() {
+      const regexp = /(?=^.{4,}$).+@.+\..+/i
+      return this.email.match(regexp)
+    },
+    isPassvordValid() {
+      return this.password.length > 6
+    },
+    isFormValid() {
+      return this.isEmailValid && this.isPassvordValid
+    }
+  },
+  // created() {
+  //   if (this.$route.query['loginError']) {
+  //     this.$store.dispatch('activeError', 'My friend, try login')
+  //     this.$store.dispatch('isErrorColor')
+  //     this.$bus.$emit('showModal')
+  // }
+  // },
+  methods: {
+    onSubmit() {
+      if (this.isFormValid) {
+        const user = {
+          email: this.email,
+          password: this.password
+        }
+        this.$store
+          .dispatch('loginUser', user)
+          .then(() => {
+            this.$router.push('/')
+            // this.$bus.$emit('showModal')
+          })
+          .catch(() => {
+            // this.$bus.$emit('showModal')
+          })
+      }
+    },
+    onMain() {
+      this.$router.push('/')
+    }
+  }
+}
 </script>

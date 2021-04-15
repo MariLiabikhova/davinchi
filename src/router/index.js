@@ -30,7 +30,7 @@ const routes = [
   },
   {
     path: '/actions_by_dbid',
-    component: () => import('../pages/ActionsByDbId.vue'),
+    component: () => import('../pages/FindDeleteUser.vue'),
     beforeEnter: routeSequrity
   },
   {

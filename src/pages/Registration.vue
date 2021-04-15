@@ -1,46 +1,48 @@
 <template>
   <div class="main h-100vh d-flex align-items-center">
-    <div class="container">
-      <div class="main__content py-5 d-flex">
-        <div class="ml-100 w-35">
-          <router-link to="#" class="link mb-100 link__logo">DVCh</router-link>
-          <div class="ml-90 mr-60 main__navy">
-            <form ref="form">
+    <div class="container main__container">
+      <div class="main__content  py-5 d-flex">
+        <div class="ml-100 w-35 mr-30">
+          <router-link to="/" class="link mb-50 link__logo">DVCh</router-link>
+          <h2 class="main__h2 mb-25 pl-50">Registration :</h2>
+          <div class="py-30 px-70 main__navy">
+            <div>
               <div>
-                <div>
-                  <label>Email:</label>
-                </div>
-                <div>
-                  <input type="email" v-model="email" :class="{form__valid: isEmailValid , form__error: !isEmailValid}"> 
-                </div>
+                <label class="main__label">Email:</label>
+                <input type="email" v-model="email" class="main__input" :class="{form__valid: isEmailValid , form__error: !isEmailValid}"> 
               </div>
               <div>
-                <div>
-                  <label>Password:</label>
-                </div>
-                <div>
-                  <input type="password" v-model="password" :class="{form__valid: isPassvordValid , form__error: !isPassvordValid}"> 
-                </div>
+                <label class="main__label">Password:</label>
+                <input type="password" v-model="password" class="main__input mb-0" @click="isActive" :class="{form__valid: isPassvordValid , form__error: !isPassvordValid}"> 
+                <div class="form__memo"><p class="main__text lh--14 my-5" :class="{form__invisible: !memo}">At least 1 uppercase and 1 lowercase letter, one number. At least 6 characters</p></div>
               </div>
-              <div>
-                <div>
-                  <label>Password confirm:</label>
-                </div>
-                <div>
-                  <input type="passwordConfirm" v-model="passwordConfirm" :class="{form__valid: isPasswordConfirm , form__error: !isPasswordConfirm}"> 
-                </div>
+              <div class=" mb-50">
+                <label class="main__label">Password confirm:</label>
+                <input type="passwordConfirm" v-model="passwordConfirm" class="main__input" :class="{form__valid: isPasswordConfirm , form__error: !isPasswordConfirm}"> 
               </div>
-              <button
-                @click="isSubmit"
-                :disabled="!isFormValid"
-                >Create account
-              </button>
-            </form>
+              <div  class=" d-flex">
+                <button class="mr-15 w-50 main__btn main__btn--gradient" 
+                  @click="isSubmit"
+                  type="submit"
+                  :disabled="!isFormValid">
+                  Create account
+                </button>
+                <button type="button"  class="main__btn w-50" @click="onMain">
+                  Back
+                </button>
+              </div>
+              
+            </div>
           </div>
         </div>
         <div class="w-40 ml-30 mt-15">
           <div class="w-70 img__wrap px-50 py-50  mb-60">
             <img :src="require('@/assets/img/camera.png')" alt="camera lens picture" class="w-100 img">
+          </div>
+          <div class="d-flex w-70 justify-content-between">
+            <router-link to="#" class="link link__lines lh--14 text--18">Order<br><span class='text--14 main__text'>a project</span></router-link>
+            <router-link to="#" class="link link__lines link__lines--second lh--14 text--18">Сustomer<br><span class='text--14 main__text'>reviews</span></router-link>
+            <router-link to="#" class="link link__lines link__lines--third lh--14 text--18">Abouts<br><span class='text--14 main__text'>us</span></router-link>
           </div>
         </div>
       </div>
@@ -48,61 +50,14 @@
   </div>
 </template>
 
-
-
-
-
-// export default {
-//   data() {
-//     return {
-//       valid: false,
-//       email: '',
-//       password: '',
-//       confirmPassword: '',
-//       emailRules: [
-//         v => !!v || 'E-mail is required',
-//         v => /.+@.+/.test(v) || 'E-mail must be valid'
-//       ],
-//       passwordRules: [
-//         v => !!v || 'Password is required',
-//         v =>
-//           v.length >= 6 || 'Password must be equal or than  than 6 characters'
-//       ],
-//       confirmPasswordRules: [
-//         v => !!v || 'Password is required',
-//         v => v === this.password || 'Password should match'
-//       ]
-//     }
-//   },
-//   methods: {
-//     isSubmit() {
-//       if (this.$refs.form.validate()) {
-//         const user = {
-//           email: this.email,
-//           password: this.password
-//         }
-//         this.$store
-//           .dispatch('registrationUser', user)
-//           .then(() => {
-//             this.$router.push('/current_user')
-//             this.$bus.$emit('showModal')
-//           })
-//           .catch(() => {
-//             this.$bus.$emit('showModal')
-//           })
-//       }
-//     }
-//   }
-// }
-//
-
 <script>
 export default {
   data() {
     return {
       email: '',
       password: '',
-      passwordConfirm: ''
+      passwordConfirm: '',
+      memo: false
     }
   },
   computed: {
@@ -131,7 +86,7 @@ export default {
         this.$store
           .dispatch('registrationUser', user)
           .then(() => {
-            this.$router.push('/current_user')
+            this.$router.push('/')
             // this.$bus.$emit('showModal')
           })
           .catch(() => {
@@ -139,6 +94,12 @@ export default {
             // this.$bus.$emit('showModal')
           })
       }
+    },
+    onMain() {
+      this.$router.push('/')
+    },
+    isActive() {
+      this.memo = true
     }
   }
 }

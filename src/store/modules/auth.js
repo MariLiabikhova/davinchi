@@ -28,11 +28,11 @@ export default {
           .auth()
           .createUserWithEmailAndPassword(email, password)
         commit('identifyUser', new UserAuth(user.user.uid))
-        commit('setSuccessMessage')
-        commit('successColor')
+        // commit('setSuccessMessage')
+        // commit('successColor')
       } catch (error) {
-        commit('setError', error.message)
-        commit('errorColor')
+        // commit('setError', error.message)
+        // commit('errorColor')
         throw error
       }
     },
