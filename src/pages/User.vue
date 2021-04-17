@@ -1,5 +1,15 @@
 <template>
-  <div class="wrap">
+  <div class="common">
+    <div class="container main__container">
+      <Navbar/>
+      <div>
+        
+      </div>
+    </div>
+
+
+
+
     <!-- <div class="card-wrapper">
       <v-card class="main">
         <v-container class="correct-fluid" fluid>
@@ -94,58 +104,17 @@
 >
 
 <script>
-// import Navbar from '../components/Navbar.vue'
-// export default {
-//   components: { Navbar },
-//   props: ['dbId'],
-//   computed: {
-//     user() {
-//       return this.$store.getters.usersById(this.dbId)
-//     },
-//     loading() {
-//       return this.$store.getters.loading
-//     }
-//   }
-// }
+import Navbar from '../components/Navbar.vue'
+export default {
+  components: { Navbar }
+  // props: ['dbId'],
+  // computed: {
+  //   user() {
+  //     return this.$store.getters.usersById(this.dbId)
+  //   },
+  //   loading() {
+  //     return this.$store.getters.loading
+  //   }
+  // }
+}
 </script>
-
-<style scoped>
-.user_wrap {
-  width: 400px;
-  display: flex;
-  align-items: center;
-}
-.user-card {
-  width: 400px;
-  margin: 10px;
-}
-.nowrapp {
-  flex-wrap: nowrap;
-}
-.word_nowrapp {
-  white-space: pre;
-}
-h1 {
-  font-size: 25px;
-}
-.img_avatar {
-  object-fit: cover;
-  height: 50px;
-  width: 50px;
-}
-.card__subtitle {
-  font-weight: bold;
-  color: white;
-  font-size: 20px;
-  margin-bottom: 7px;
-}
-.card__describe {
-  color: white;
-  font-size: 16px;
-  font-weight: normal;
-}
-.card_background {
-  background-image: url('https://doseng.org/uploads/posts/2013-02/1359716103_doseng.org_04.jpg');
-  background-color: black;
-}
-</style>

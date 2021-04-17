@@ -29,7 +29,7 @@ const routes = [
     component: () => import('../pages/Registration.vue')
   },
   {
-    path: '/actions_by_dbid',
+    path: '/find_delete_user',
     component: () => import('../pages/FindDeleteUser.vue'),
     beforeEnter: routeSequrity
   },

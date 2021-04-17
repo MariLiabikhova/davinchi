@@ -13,12 +13,12 @@
               </div>
               <div>
                 <label class="main__label">Password:</label>
-                <input type="password" v-model="password" class="main__input mb-0" @click="isActive" :class="{form__valid: isPassvordValid , form__error: !isPassvordValid}"> 
-                <div class="form__memo"><p class="main__text lh--14 my-5" :class="{form__invisible: !memo}">At least 1 uppercase and 1 lowercase letter, one number. At least 6 characters</p></div>
+                <input type="password" v-model="password" class="main__input mb-0" @focus="isActive" :class="{form__valid: isPassvordValid , form__error: !isPassvordValid}"> 
+                <div class="form__memo"><p class="main__text lh--14 text--12 py-10" :class="{form__invisible: !memo}">At least 1 uppercase and 1 lowercase letter, one number. At least 6 characters</p></div>
               </div>
               <div class=" mb-50">
                 <label class="main__label">Password confirm:</label>
-                <input type="passwordConfirm" v-model="passwordConfirm" class="main__input" :class="{form__valid: isPasswordConfirm , form__error: !isPasswordConfirm}"> 
+                <input type="password" v-model="passwordConfirm" class="main__input" :class="{form__valid: isPasswordConfirm , form__error: !isPasswordConfirm}"> 
               </div>
               <div  class=" d-flex">
                 <button class="mr-15 w-50 main__btn main__btn--gradient" 

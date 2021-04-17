@@ -1,10 +1,22 @@
 <template>
-  <div class="wrap">
+  <div class="common h-100vh">
+    <div class="container main__container d-flex">
+      <Navbar/>
+      <div class="common__content ml-40">
+        <!-- <section v-if="currentUser">
+        </section> -->
+        <!-- <section v-else> -->
+          <CreateUser />
+        <!-- </section> -->
+      </div>
+    </div>
+  </div>
+
     <!-- <div class="card-wrapper">
       <v-card class="main">
         <v-container class="correct-fluid" fluid>
           <v-row class="correct-fluid">
-            <Navbar />
+            <Navbar/>
             <v-col class="no-padding" cols="8" xs="8" sm="8" md="9">
               <v-card class="main_right-part" height="100%">
                 <section v-if="currentUser">
@@ -91,67 +103,26 @@
         </v-container>
       </v-card>
     </div> -->
-  </div>
 </template>
 
 <script>
-// import EditUser from '../components/EditUser.vue'
-// import DeletUser from '../components/DeletUser.vue'
-// import CreateUser from '../components/CreateUser.vue'
-// import Navbar from '../components/Navbar.vue'
-// export default {
-//   components: { EditUser, DeletUser, CreateUser, Navbar },
-//   computed: {
-//     currentUser() {
-//       return this.$store.getters.currentUser
-//     },
-//     loading() {
-//       return this.$store.getters.loading
-//     }
-//   }
-// }
+import Navbar from '../components/Navbar.vue'
+import CreateUser from '../components/CreateUser.vue'
+export default {
+  components: { Navbar, CreateUser }
+  // import EditUser from '../components/EditUser.vue'
+  // import DeletUser from '../components/DeletUser.vue'
+  // import CreateUser from '../components/CreateUser.vue'
+  // import Navbar from '../components/Navbar.vue'
+  // export default {
+  //   components: { EditUser, DeletUser, CreateUser, Navbar },
+  //   computed: {
+  //     currentUser() {
+  //       return this.$store.getters.currentUser
+  //     },
+  //     loading() {
+  //       return this.$store.getters.loading
+  //     }
+  //   }
+}
 </script>
-
-<style scoped>
-.user_wrap {
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-.user-card {
-  width: 100%;
-  margin: 10px;
-}
-.nowrapp {
-  flex-wrap: nowrap;
-}
-.word_nowrapp {
-  white-space: pre;
-}
-h1 {
-  font-size: 25px;
-}
-.img_avatar {
-  object-fit: cover;
-}
-.card__subtitle {
-  font-weight: bold;
-  color: white;
-  font-size: 20px;
-  margin-bottom: 7px;
-}
-.card__describe {
-  color: white;
-  font-size: 16px;
-  font-weight: normal;
-}
-.img_avatar {
-  object-fit: cover;
-  height: 150px;
-  width: 150px;
-}
-.card_background {
-  background-image: url('https://doseng.org/uploads/posts/2013-02/1359716103_doseng.org_04.jpg');
-  background-color: black;
-}
-</style>

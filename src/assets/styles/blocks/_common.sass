@@ -1,0 +1,75 @@
+// common
+.common
+  overflow: hidden
+  width: 100%
+  background-color: $fog
+  &__content
+    width: 70%
+    height: 100%
+    padding: 40px
+    background-color: $white
+    overflow: hidden
+    height: 100%
+    box-shadow: 100px -2px 99px -47px rgba(34, 60, 80, 0.2) inset
+  &__h2
+    color: $black
+    font-size: 25px
+  &__label
+    display: block
+    text-align: start
+    color: $black
+    margin-bottom: 0
+  &__option
+    font-size: 14px
+  &__input
+    display: block
+    height: 30px
+    width: 70%
+    border-radius: 4px
+    border: 1px solid lighten($black, 80%)
+    box-shadow: -46px 42px 71px -56px rgba(34, 60, 80, 0.21) inset
+    &:focus
+      outline: none
+      box-shadow: none
+  &__text
+    font-size: 14px
+    color: lighten($black, 70%)
+  &__icon
+    height: 20px
+    width: 20px
+    margin-left: 5px
+  &__btn
+    outline: none
+    border: none
+    background-color: $sapphire
+    border-radius: 10px
+    height: 40px
+    width: 180px
+    color: $white
+    font-size: 14px
+    transition: all .3s ease
+    &:hover
+      box-shadow: 27px 5px 56px -3px rgba(34, 60, 80, 0.28)
+      transition: all .3s ease
+    &:focus
+      outline: none
+    &--white
+      border: 1px solid lighten($black, 80%)
+      font-weight: bold
+      font-size: 16px
+      background-color: $white
+      color: $black
+      &:hover
+        cursor: pointer
+      &:disabled
+        opacity: .5
+        &:hover
+          box-shadow: none
+          cursor: auto
+  &__img-window
+    object-fit: cover
+  &__imgwrap
+    height: 150px
+    width: 150px
+    display: flex
+// common END
