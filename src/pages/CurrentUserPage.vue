@@ -1,8 +1,8 @@
 <template>
-  <div class="common h-100vh">
-    <div class="container main__container d-flex">
+  <div class="main h-100vh d-flex align-items-center">
+    <div class="container main__container h-100vh d-flex">
       <Navbar/>
-      <div class="common__content ml-40">
+      <div class="main__content main__content--afterreg ml-40">
         <!-- <section v-if="currentUser">
         </section> -->
         <!-- <section v-else> -->

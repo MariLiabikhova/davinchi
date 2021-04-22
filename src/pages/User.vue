@@ -1,5 +1,5 @@
 <template>
-  <div class="common">
+  <div class="main h-100vh d-flex align-items-center">
     <div class="container main__container">
       <Navbar/>
       <div>

@@ -1,47 +1,49 @@
 <template>
   <section v-if="!loading">
-    <h2 class="common__h2 mb-25 ">Please, enter your data :</h2>
+    <h2 class="main__h2 mb-25 ">Please, enter your data :</h2>
     <div class="d-flex flex-wrap">
       <div class="w-50 mb-20">
-        <label class="common__label">First name*:</label>
-        <input v-model="name" class="common__input"> 
+        <label class="main__label mb-0">First name*:</label>
+        <input v-model="name" class="input input--start"> 
       </div>
       <div class="w-50 mb-20">
-        <label class="common__label">Last name*:</label>
-        <input v-model="secondName" class="common__input"> 
+        <label class="main__label mb-0">Last name*:</label>
+        <input v-model="secondName" class="input input--start"> 
       </div>
       <div class="w-50 mb-20">
-        <label class="common__label">Nickname*:</label>
-        <input v-model="nickname" class="common__input"> 
+        <label class="main__label mb-0">Nickname*:</label>
+        <input v-model="nickname" class="input input--start"> 
       </div>
       <div class="w-50 mb-20">
-        <label class="common__label">Age*:</label>
-        <input v-model="age" class="common__input"> 
+        <label class="main__label mb-0">Age*:</label>
+        <input v-model="age" class="input input--start"> 
       </div>
 
       <div class="w-50 mb-20">
-        <label class="common__label">Gender*:</label>
-        <select v-model="gender" class="common__input" >
+        <label class="main__label mb-0">Gender*:</label>
+        <select v-model="gender" class="input input--start" >
           <option v-for="gender in genders" :key="gender.id">{{gender}}</option>
         </select>
       </div>
 
       <div class="w-50 mb-20">
-        <label class="common__label">Role*:</label>
-        <select v-model="role" class="common__input" >
-          <option v-for="role in roles" :key="role.id" class="common__option">{{role}}</option>
+        <label class="main__label mb-0">Role*:</label>
+        <select v-model="role" class="input input--start" >
+          <option v-for="role in roles" :key="role.id">{{role}}</option>
         </select>
       </div>
-      <p class="common__text w-100">*indicates required field</p>
+      <p class="text--12 w-100">*indicates required field</p>
       
 
-      <div v-if="imgSrc" class="common__imgwrap w-100 mb-30">
-        <img :src="imgSrc" class="common__img-window"/>
+      <div v-if="imgSrc" class=" w-100 mb-30">
+        <div class="d-flex main__imgwrap">
+          <img :src="imgSrc" class="img"/>
+        </div>
       </div>
       <div class="w-50">
-        <button @click="addPhoto" class="common__btn mb-50">
+        <button @click="addPhoto" class="main__btn mb-50 w-70">
           Upload profile photo
-          <img :src="require('@/assets/img/i-download.png')"  class="common__icon"/>
+          <img :src="require('@/assets/img/i-download.png')"  class="main__icon"/>
         </button>
         <input
           ref="add"
@@ -55,7 +57,7 @@
         ref="createBtn"
         :disabled="!isFormValid || !img"
         @click="createUser"
-        class="common__btn common__btn--white"
+        class="main__btn main__btn--gradient w-33"
       >
         Save
       </button>

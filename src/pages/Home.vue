@@ -1,7 +1,7 @@
 <template>
   <div class="main h-100vh d-flex align-items-center">
     <div class="container  main__container">
-      <div class="main__content d-flex py-5">
+      <div class="main__content main__content--home d-flex py-5">
         <div class="ml-100 w-35">
           <router-link to="#" class="link mb-30 link__logo">DVCh</router-link>
           <h1 class="main__h1 mb-20"> Da-Vinchi Network. Bringing it all Tohether!</h1>
@@ -32,7 +32,7 @@
         </div>
         <div class="w-40 ml-30 mt-15">
           <div class="w-70 img__wrap px-50 py-50  mb-60">
-            <img :src="require('@/assets/img/camera.png')" alt="camera lens picture" class="w-100 img">
+            <img :src="require('@/assets/img/camera.png')" alt="camera lens picture" class="w-100 img img--camera">
           </div>
           <div class="d-flex w-70 justify-content-between">
             <router-link to="#" class="link link__lines lh--14 text--18">Order<br><span class='text--14 main__text'>a project</span></router-link>
