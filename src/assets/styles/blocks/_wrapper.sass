@@ -1,0 +1,73 @@
+// wrapper
+.wrapper
+  position: relative
+  &--out
+    height: 200px
+    width: 150px
+    z-index: 2300
+    &:after
+      content: ""
+      position: absolute
+      height: 60px
+      width: 60px
+      background: linear-gradient(to bottom, $pink, $yellow)
+      right: 0
+      top: 0
+      border: 8px solid $navy
+      border-radius: 15px
+      transform: rotate(45deg) translate(50%, -50%)
+      z-index: 1100
+    &:before
+      content: "DVCh"
+      color: $white
+      width: 60px
+      font-size: 14px
+      line-height: 16px
+      font-family: FredokaOne
+      position: absolute
+      left: calc( 100% - calc(21px - 8px/2 ) )
+      top: 21px
+      z-index: 1200
+  &--in
+    overflow: hidden
+    height: 200px
+    width: 150px
+    &:before
+      content: ""
+      position: absolute
+      height: 70px
+      width: 70px
+      background-color: $navy
+      right: 0
+      bottom: 0
+      transform: rotate(45deg) translateX(50px)
+      z-index: 1000
+    &:after
+      content: ""
+      position: absolute
+      height: 70px
+      width: 70px
+      background-color:  $navy
+      left: 0
+      bottom: 0
+      transform: rotate(45deg) translateY(50px)
+      z-index: 1000
+  &--pseudo
+    height: 100%
+    width: 100%
+    position: relative
+    &:after
+      content: ""
+      position: absolute
+      height: 100%
+      width: 100%
+      background: radial-gradient(ellipse at center,  $pink 10%, $yellow 100%)
+      opacity: .4
+      left: 0
+      top: 0
+  &--btn
+    display: flex
+    align-self: center
+    align-items: center
+    flex-grow: 1
+// wrapper END

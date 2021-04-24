@@ -2,13 +2,53 @@
   <div class="main h-100vh d-flex align-items-center">
     <div class="container main__container h-100vh d-flex">
       <Navbar/>
-      <div class="main__content main__content--afterreg ml-40">
-        <!-- <section v-if="currentUser">
-        </section> -->
-        <!-- <section v-else> -->
+      <section v-if="currentUser" class="main__navy main__navy--card w-40 mx-auto">
+        <div class="wrapper wrapper--out mx-auto">
+          <div class="wrapper wrapper--in">
+            <div class=" img__wrap--card mb-20">
+              <div class="wrapper--pseudo img__wrap">
+                <img class="img" :src="currentUser.imgSrc">
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="main__h2 my-20 ">{{ currentUser.name }} {{ currentUser.secondName }}</h2>
+        <p class="main__text ml-10 text--uppercase">{{currentUser.role}}</p>
+        <div class="d-flex mb-5 align-items-end">
+          <p class="main__text main__text--small">nickname:</p>
+          <p class="main__text main__text main__text--upper">{{currentUser.nickname}}</p>
+        </div>
+        <div class="d-flex mb-5  align-items-end">
+          <p class="main__text main__text main__text--upper">{{currentUser.age}}</p>
+          <p class="main__text main__text--small mx-5">years old,</p>
+          <p class="main__text main__text main__text--upper">{{currentUser.gender}}</p>
+        </div>
+        <div class="d-flex mb-5  align-items-end">
+          <p class="main__text main__text--small">email:</p>
+          <p class="main__text main__text main__text--upper">{{currentUser.email}}</p>
+        </div>
+        <div class="d-flex mb-5  align-items-end">
+          <p class="main__text main__text--small">aid:</p>
+          <p class="main__text main__text main__text--upper">{{currentUser.aid}}</p>
+        </div>
+        <div class="d-flex mb-5  align-items-end">
+          <p class="main__text main__text--small">dbId:</p>
+          <p class="main__text main__text main__text--upper">{{currentUser.dbId}}</p>
+        </div>
+        <div class="wrapper--btn w-70">
+          <button class="w-50 mr-15 main__btn main__btn--gradient" @click="onUserPage">
+            Edit page
+          </button>
+          <button class="w-50 main__btn"  @click="onLogout">
+            Delete profile
+          </button>
+        </div>
+      </section>
+      <section v-else>
+        <div class="main__content main__content--afterreg ml-40 py-10">
           <CreateUser />
-        <!-- </section> -->
-      </div>
+        </div>
+      </section>
     </div>
   </div>
 
@@ -109,7 +149,12 @@
 import Navbar from '../components/Navbar.vue'
 import CreateUser from '../components/CreateUser.vue'
 export default {
-  components: { Navbar, CreateUser }
+  components: { Navbar, CreateUser },
+  computed: {
+    currentUser() {
+      return this.$store.getters.currentUser
+    }
+  }
   // import EditUser from '../components/EditUser.vue'
   // import DeletUser from '../components/DeletUser.vue'
   // import CreateUser from '../components/CreateUser.vue'

@@ -64,6 +64,14 @@
   &__text
     font-size: 14px
     color: $blue
+    &--upper
+      text-transform: uppercase
+      text-align: start
+      margin-bottom: 0
+    &--small
+      font-size: 12px
+      margin-right: 5px
+      margin-bottom: 0
   &__h2
     position: relative
     font-size: 25px
@@ -80,6 +88,12 @@
         font-size: 14px
         background-color: $mint
         margin-left: 10px
+  &__h3
+    font-size: 18px
+    text-align: start
+    font-family: FredokaOne
+    margin-bottom: 0
+    width: 25%
   &__navy
     text-align: center
     background: linear-gradient(to right, $navy, $navy-light)
@@ -90,15 +104,16 @@
     padding-top: 20px
     padding-bottom: 20px
     margin-bottom: 5px
+    &--card
+      border: 1px solid $navy-light
+      overflow: hidden
+      background: linear-gradient(to bottom, $navy 80%, $navy-light)
+      display: flex
+      flex-direction: column
   &__label
     display: block
     margin-bottom: 15px
     text-align: start 
-  &__imgwrap
-    height: 150px
-    width: 150px
-    display: flex
-    overflow: hidden
   &__icon
     height: 20px
     width: 20px
@@ -106,10 +121,10 @@
 .bor
   border: 1px dashed violet
 .bor2
-  border: 1px dashed red
+  border: 2px dashed red
 .bor3
   border: 1px dashed green
 .bor1
-  border: 1px dashed black
+  border: 1px dashed white
   
 // main END

@@ -36,7 +36,7 @@
       
 
       <div v-if="imgSrc" class=" w-100 mb-30">
-        <div class="d-flex main__imgwrap">
+        <div class="img__wrap img__wrap--upload">
           <img :src="imgSrc" class="img"/>
         </div>
       </div>

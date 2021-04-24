@@ -1,6 +1,8 @@
 // img
 .img
   object-fit: cover
+  height: 100%
+  width: 100%
   &--camera
     border: 5px solid $navy-light
     background-color:  $navy-light
@@ -8,11 +10,39 @@
     box-shadow: 0 0 35px 10px $navy-light
   &__wrap
     display: flex
-    align-self: center
-    background: linear-gradient(to right, $yellow, $pink)
-    border-radius: 50%
-    box-sizing: content-box
-    margin-left: auto
-    margin-right: auto
-    box-shadow: 0 0 25px 10px $pink
+    overflow: hidden
+    &--upload
+      height: 150px
+      width: 100%
+    &--camera
+      background: linear-gradient(to right, $yellow, $pink)
+      border-radius: 50%
+      box-sizing: content-box
+      margin-left: auto
+      margin-right: auto
+      box-shadow: 0 0 25px 10px $pink
+    &--card
+      height: 200px
+      width: 150px
+      position: relative
+      &:after
+        content: ""
+        position: absolute
+        height: 70px
+        width: 70px
+        background-color:  $navy
+        left: 0
+        top: 0
+        transform: rotate(45deg) translateX(-50px)
+        z-index: 1000
+      &:before
+        content: ""
+        position: absolute
+        height: 70px
+        width: 70px
+        background-color: $navy
+        right: 0
+        top: 0
+        transform: rotate(45deg) translateY(-50px)
+        z-index: 1000
 // img END

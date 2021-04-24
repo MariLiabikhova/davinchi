@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="w-40 ml-30 mt-15">
-          <div class="w-70 img__wrap px-50 py-50  mb-60">
+          <div class="w-70 img__wrap img__wrap--camera px-50 py-50  mb-60">
             <img :src="require('@/assets/img/camera.png')" alt="camera lens picture" class="w-100 img img--camera">
           </div>
           <div class="d-flex ml-10 w-70 justify-content-between">
